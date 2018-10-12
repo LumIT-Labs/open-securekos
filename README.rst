@@ -40,6 +40,8 @@ Open Secure-K OS is a **LumIT Labs** project.
 How to build
 ^^^^^^^^^^^^
 
+A **32bit Debian Stretch** bare-metal system or virtual machine is required for the build.
+
 Open Secure-K OS is built using the standard Debian **live-build** framework, so you first need to install it:: 
  
     apt-get install -y live-build
@@ -76,10 +78,10 @@ What about Secure-K OS?
 
 Unique Secure-K OS features are:
 
-* anti-tampering measures performed during the bootstrap;
+* anti-tampering measures performed during the bootstrap: a self-checking kernel component is also available, which is responsible of verifying that system files have not been tampered, preventing the virtualization of the image, the use of the *init=* kernel boot parameter, and so on;
 * unencrypted key’s partition for data exchange;
-* Backup & Restore – an optional encrypted real-time system backup: system can be restored to a new USB key, useful in case of key theft or loss. Backup is performed into the Secure-K cloud.
-* “security for everyone” area (Secure-Zone), which allows:
+* Backup & Restore – an optional encrypted real-time system backup: system can be restored to a new USB key, useful in case of key theft or loss. Backup is performed into the Secure-K cloud;
+* Secure-Zone, which allows:
     * anonymous browsing;
     * encrypted textual, audio and video chat;
     * encrypted and signed emails exchange with ease: a program called Key Manager is able to generate and exchange GPG keys with a central keyserver. This allows everyone running a Secure-K OS to send encrypted emails to another Secure-K OS user without manually retrieving the GPG key: process is done automatically by the modified Evolution email client build, which runs on top of every Secure-K OS.
