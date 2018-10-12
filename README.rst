@@ -32,7 +32,8 @@ Longer:
 Contribute to the project
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open Secure-K OS is a **free and open source** project; code and documentation contributions are welcome.
+Open Secure-K OS is a **free and open source** project; code and documentation contributions are welcome. 
+Open Secure-K OS is a **LumIT Labs** project.
 
 
 How to build
