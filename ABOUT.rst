@@ -15,5 +15,5 @@ LumIT S.p.A. was born in 2009 from the idea of ​​two young Italian entrepren
 
     Precisely for these reasons, we are able to support our customers, providing services tailored to their needs and always paying attention to their requests rather than to a specific brand.
 
-**Open Secure-K OS** has been created by **LumIT Labs**, an innovation laboratory from LumIT S.p.A. (Open Secure-K OS Deployer team: `Marco Buratto <https://www.linkedin.com/in/mburatto>`_, `Michele Sartori <https://www.linkedin.com/in/michele-sartori-1b4b632>`_, `Daniele Tieghi <https://www.linkedin.com/in/danieletieghi>`_).
+**Open Secure-K OS** has been created by **LumIT Labs**, an innovation laboratory from LumIT S.p.A. (Open Secure-K OS team: `Marco Buratto <https://www.linkedin.com/in/mburatto>`_, `Michele Sartori <https://www.linkedin.com/in/michele-sartori-1b4b632>`_, `Daniele Tieghi <https://www.linkedin.com/in/danieletieghi>`_).
 

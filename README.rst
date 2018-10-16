@@ -6,7 +6,7 @@ What is
 
 Short:
 
-    **Open Secure-K OS** is a **liveng-compliant** (https://github.com/LumIT-Labs/liveng, https://liveng.readthedocs.io) operating system built using Linux Debian Stretch components. It is a free and open source next generation live operating system, on which `Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built, capable of: 
+    **Open Secure-K OS** is a **liveng-compliant** (https://github.com/LumIT-Labs/liveng, https://liveng.readthedocs.io) operating system built using Linux Debian Stretch components. It is a free and open source next generation **live operating system**, on which `Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built, **capable of**:
 
     * native encrypted persistence;
     * kernel update (on a live ISO 9660 filesystem!);
@@ -29,6 +29,11 @@ Longer:
     `Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built upon Open Secure-K OS.
 
 
+
+@todo: screenshots.
+
+
+
 Contribute to the project
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -37,14 +42,16 @@ Open Secure-K OS is a **free and open source** project; code and documentation c
 Open Secure-K OS is a **LumIT Labs** project.
 
 
-How to build
-^^^^^^^^^^^^
+How to build the initial ISO image
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A **32bit Debian Stretch** bare-metal system or virtual machine is required for the build.
 
-Open Secure-K OS is built using the standard Debian **live-build** framework, so you first need to install it:: 
+The Open Secure-K OS ISO image is built using the standard Debian **live-build** framework, so you first need to install it:: 
  
     apt-get install -y live-build
+
+Git **clone this project as root**.
 
 In order to build a Secure-K OS image, open the terminal emulator **as root**::
 
@@ -54,34 +61,68 @@ In order to build a Secure-K OS image, open the terminal emulator **as root**::
     lb config -c auto/config
     lb build 
 
+A 32 bit image will be built (the resulting .iso file). 
 
-What you obtain
-^^^^^^^^^^^^^^^
 
-A 32 bit image of Open Secure-K OS will be built. 
+Download a ready-to-use image
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* root user's password is: *root*; 
-* during the boot, you will be asked for the decryption password of the data persistence partition (see *liveng* docs and the next section, *How to deploy*);
-* system user will be created upon the first boot.
+A downloadable ISO image is also available in the **image-latest/** folder for the download.
 
 
 How to deploy
 ^^^^^^^^^^^^^
 
-**Open Secure-K OS Deployer** (https://github.com/LumIT-Labs/open-securekos-deployer) is the deployment system for writing Open Secure-K OS onto a USB key - it will create the liveng partitioning scheme: run the Deployer, select the Open Secure-K OS image you have built and type in the passphrase for LUKS-encrypting the data persistence partition, then click on Write. Deployer will deploy Open Secure-K OS onto all the insterted (and listed) USB devices.
+**Open Secure-K OS Deployer** (https://github.com/LumIT-Labs/open-securekos-deployer) is the deployment system for writing the initial Open Secure-K OS ISO image onto a USB key - it will create the liveng partitioning scheme: run the Deployer, select the image you have built (or downloaded) and type in a passphrase of your choice for LUKS-encrypting the data persistence partition (remember: Open Secure-K OS features native encrypted persistence), then click on Write. Deployer will write the Open Secure-K OS ISO image onto all the plgged-in (and listed) USB devices, thus creating the complete Open Secure-K OS operating system.
+
+Some Open Secure-K OS notes:
+
+* root user's password is: *liveng*; 
+* during the boot, you will be asked for the decryption password of the data persistence partition;
+* system user will be created upon the first boot.
+
+
+Test with VirtualBox
+^^^^^^^^^^^^^^^^^^^^
+
+You can test Open Secure-K OS within the virtualization system of your choice; you first need to bit-bit copy the content of the USB key you have written by using the Open Secure-K OS Deployer into a file. You cannot use the initial ISO image you have built (or downloaded) directly, because it lacks the liveng partitioning scheme.
+
+Thus, deploy the ISO image onto a USB key as previously described, then (locate USB key's device file with *fdisk -l*)::
+
+    dd if=/dev/deviceFile of=/tmp/open-securek-os.img bs=10M
+
+A real example::
+
+    dd if=/dev/sdc of=/tmp/open-securek-os.img bs=10M
+
+Note that the new file has got the .img extension (it's not a ISO file any more).
+
+With this image file, a VirtualBox-related howto now follows. 
+
+First of all, you need to convert the IMG image into the VirtualBox VDI format::
+
+    vboxmanage convertdd /path/to/open-securek-os.img /path/to/open-securek-os.vdi
+
+Then you have to create a new virtual machine in VirtualBox and use *open-securek-os.vdi* as the virtual hard drive. 
+You also need to enable the PAE/NX CPU functionalities and 3D acceleration capabilities.
+
+We have noticed that on some VirtualBox installations, Plymouth input password box isn't working: upon booting, edit the GRUB linux command line (*e* key) and remove the splash directive.
+
+Run-time, you are advised to install VirtualBox Guest Additions.
 
 
 What about Secure-K OS?
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-`Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built upon Open Secure-K OS. 
+`Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built upon Open Secure-K OS and improves its *community counterpart* in some ways. 
 
 Unique Secure-K OS features are:
 
 * anti-tampering measures performed during the bootstrap: a self-checking kernel component is also available, which is responsible of verifying that system files have not been tampered, preventing the virtualization of the image, the use of the *init=* kernel boot parameter, and so on;
 * unencrypted key’s partition for data exchange;
-* Backup & Restore – an optional encrypted real-time system backup: system can be restored to a new USB key, useful in case of key theft or loss. Backup is performed into the Secure-K cloud;
+* Backup & Restore – an optional encrypted real-time system backup: system can be restored to a new USB key, useful in case of key theft or loss. Backup is performed into the Secure-K OS' cloud;
 * Secure-Zone, which allows:
+
     * anonymous browsing;
     * encrypted textual, audio and video chat;
     * encrypted and signed emails exchange with ease: a program called Key Manager is able to generate and exchange GPG keys with a central keyserver. This allows everyone running a Secure-K OS to send encrypted emails to another Secure-K OS user without manually retrieving the GPG key: process is done automatically by the modified Evolution email client build, which runs on top of every Secure-K OS.
