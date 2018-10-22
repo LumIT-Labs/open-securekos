@@ -15,5 +15,5 @@ config/bootstrap
 config/build
 config/common
 config/source
-config/package-lists/*.chroot
+
 
