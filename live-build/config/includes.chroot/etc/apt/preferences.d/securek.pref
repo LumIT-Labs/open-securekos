@@ -1,0 +1,8 @@
+Package: *
+Pin: release n=stretch
+Pin-Priority: 900
+
+Package: *
+Pin: release n=sk-90
+Pin-Priority: 950
+

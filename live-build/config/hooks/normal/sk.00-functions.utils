@@ -1,0 +1,19 @@
+#!/bin/bash
+
+log() 
+{
+    logfile=$LOGFILE
+    color=$COLOR
+    ln=$BASH_LINENO
+    parentScript=${BASH_SOURCE[1]}
+    colorDefault='\e[39m'
+
+    lineTxt=$(sed -n ${ln}p $0)
+    lExpandVars=`echo ${lineTxt} | envsubst`
+    echo -e "${color}HOOK:${colorDefault} ${parentScript}"
+    echo -e "${color}COMMAND:${colorDefault} ${lExpandVars}" | sed -r -e 's#\|&log$##'| tee -a $logfile
+
+    cat ${@} | tee -a $logfile
+    echo | tee -a $logfile
+}
+

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Secure-K hooks.
+hooksFolder="/etc/gdm3/PostSession.d"
+if [ -d $hooksFolder ]; then
+    for hookScript in $hooksFolder/hook-*-sk.sh; do
+        $hookScript
+    done
+fi
+
+exit 0

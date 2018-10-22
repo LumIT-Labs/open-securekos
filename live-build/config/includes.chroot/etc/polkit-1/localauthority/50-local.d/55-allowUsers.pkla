@@ -1,0 +1,7 @@
+[Allow users to modify users' accounts]
+Identity=unix-user:*
+Action=org.freedesktop.accounts.change-own-user-data
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+

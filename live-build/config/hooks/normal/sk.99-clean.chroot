@@ -1,0 +1,26 @@
+#!/bin/bash
+
+LOGFILE="/dev/null"
+COLOR='\e[93mLight'
+
+if [ -r  /live-build/config/hooks/normal/sk.00-functions.utils ]; then 
+    . /live-build/config/hooks/normal/sk.00-functions.utils # fullpath for this folder when in live build runtime.
+fi
+
+####################################################################################################################################
+# Cleanups.
+####################################################################################################################################
+
+# Divert the following files, for we don't want them to be ever updated.
+programFiles=("/usr/lib/os-release")
+for programFile in ${programFiles[@]};
+do
+    programFileName=$(echo -n "$programFile" | sed -r -e 's#(.*)/(.*)#\2#')
+    dpkg-divert --divert /tmp/$programFileName --rename $programFile |&log
+    cp -a /tmp/$programFileName $programFile |&log
+done
+
+# Final cleanups.
+apt-get clean
+apt-get -y --purge autoremove
+

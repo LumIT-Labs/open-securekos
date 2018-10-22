@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Secure-K hooks.
+hooksFolder="/etc/gdm3/PostLogin.d"
+if [ -d $hooksFolder ]; then
+    for hookScript in $hooksFolder/hook-*-sk.sh; do
+        $hookScript
+    done
+fi
+
+exit 0

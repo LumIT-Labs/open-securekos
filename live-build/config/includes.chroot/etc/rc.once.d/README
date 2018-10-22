@@ -1,0 +1,2 @@
+Put in this folder the scripts that you want to run once at the next reboot. Every single script is deleted if its exit code is 0.
+The scripts must have a name like rc.once-*-sk.sh and exec permissions.

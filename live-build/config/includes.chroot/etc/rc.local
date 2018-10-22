@@ -1,0 +1,22 @@
+#!/bin/bash 
+
+# Secure-K hooks.
+hooksFolder="/etc/rc.local.d"
+if [ -d $hooksFolder ]; then
+    for hookScript in $hooksFolder/hook-*-sk.sh; do
+        $hookScript
+    done
+fi
+
+# Run-once scripts.
+runOnceFolder="/etc/rc.once.d"
+if [ -d $runOnceFolder ]; then
+    for runOnceScript in $runOnceFolder/rc.once-*-sk.sh; do
+        if $runOnceScript; then
+            rm -f $runOnceScript
+        fi
+    done
+fi
+
+exit 0
+

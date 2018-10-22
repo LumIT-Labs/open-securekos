@@ -1,0 +1,96 @@
+#!/bin/bash
+
+LOGFILE="/dev/null"
+COLOR='\e[91m'
+
+if [ -r  /live-build/config/hooks/normal/sk.00-functions.utils ]; then 
+    . /live-build/config/hooks/normal/sk.00-functions.utils
+fi
+
+####################################################################################################################################
+# System-related installations and key configurations.
+####################################################################################################################################
+
+# Kernel installation.
+# @todo: if kernel installation is moved into the chroot stage, persistence gets broken, try to fix this.
+echo "Kernel upgrading..."
+# sk-linux-image-update depends on kernel packages. 
+# It also triggers the initrd build and the re-write of the Open Secure-K OS' second system partition for updating the kernel and the initrd 
+# (while not live-building).
+apt-get install -y sk-linux-image-update |&log
+
+# Removing the old kernel.
+apt-get -y --purge remove linux-image-4.9.0* linux-headers-4.9.0* |&log
+
+# Broadcom-sta dkms installation.
+apt-get install -y broadcom-sta-dkms |&log
+
+# Divert the following files, for we don't want them to be updated.
+programFiles=("/lib/systemd/system/gdm.service")
+for programFile in ${programFiles[@]};
+do
+    programFileName=$(echo -n "$programFile" | sed -r -e 's#(.*)/(.*)#\2#')
+    dpkg-divert --divert /tmp/$programFileName --rename $programFile |&log
+    cp -a /tmp/$programFileName $programFile |&log
+done
+
+# Change root password, the command line way.
+passwd --quiet root <<EOF
+liveng
+liveng
+EOF
+
+chmod 750 /root |&log
+
+# Clean fstab, it will be written later.
+rm -f /etc/fstab |&log
+
+# Removals.
+apt-get --purge remove -y modemmanager totem* |&log
+
+# Force-enable Systemd NTP service, used by GNOME to automagically set time and date. 
+systemctl enable systemd-timesyncd |&log
+
+# And disable Openntpd (if installed).
+systemctl disable openntpd |&log
+
+# User's keyboard (desktop, login screen) will be set by G.I.S., so initial keymap must be null in /etc/default and in dconf/user.
+
+# dconf/user for skel (only), compile from "sources".
+mkdir /tmp/dconf |&log
+cp /etc/skel/.config/dconf/user.src/user.src /tmp/dconf/ |&log
+dconf compile /tmp/dconf.new /tmp/dconf |&log
+mv -f /tmp/dconf.new /etc/skel/.config/dconf/user |&log
+chmod 750 /etc/skel/.config/dconf/user |&log
+chown 0:0 /etc/skel/.config/dconf/user |&log
+rm -fR /tmp/dconf |&log
+
+# Copy dconf/user in skel/ to a users' readable file, for being used by "dconf/user watchdog" in GDM postlogin script.
+cp -afv /etc/skel/.config/dconf/user /etc/config-dconf-user-sk && chmod 755 /etc/config-dconf-user-sk |&log
+ 
+# Secure-K OS version file. Don't move the following lines before the kernel installation.
+cat > /etc/os-release <<EOF
+NAME="Open Secure-K OS"
+PRETTY_NAME="Open Secure-K OS"
+VERSION="1.0"
+BUILD="$(date +'%Y%m%d:%H%m')"
+BUILD_ID="$(date +'%Y%m%d:%H%m')"
+ID=open-securekos
+EOF
+
+echo "$(date +'%Y%m%d:%H%m')" > /etc/securek_version |&log
+
+####################################################################################################################################
+# Force includes-chroot-injected files' permissions.
+####################################################################################################################################
+
+# Set includes-chroot-injected files' permissions which differ from standard umask.
+# live-build process must always be run as root, as well as git clone.
+chmod 755 /etc/rc.local |&log
+chmod 755 /etc/rc.local.d/* |&log
+
+chmod 755 /etc/gdm3/PostLogin/* |&log
+chmod 755 /etc/gdm3/PostLogin.d/* |&log
+chmod 755 /etc/gdm3/PostSession/* |&log
+chmod 755 /etc/gdm3/PostSession.d/* |&log
+

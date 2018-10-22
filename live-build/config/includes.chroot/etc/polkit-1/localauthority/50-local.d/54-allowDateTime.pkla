@@ -1,0 +1,32 @@
+[Allow users to modify time and date]
+Identity=unix-user:*
+Action=org.freedesktop.timedate1.set-time
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+
+Identity=unix-user:*
+Action=org.freedesktop.timedate1.set-local-rtc
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+
+Identity=unix-user:*
+Action=org.freedesktop.timedate1.set-ntp
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+
+[Allow users to modify NTP]
+Identity=unix-user:*
+Action=org.freedesktop.timedate1.set-timezone
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+
+[GNOME interface for both]
+Identity=unix-user:*
+Action=org.gnome.controlcenter.datetime.configure
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes

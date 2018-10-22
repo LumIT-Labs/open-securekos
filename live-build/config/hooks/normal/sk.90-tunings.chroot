@@ -1,0 +1,39 @@
+#!/bin/bash
+
+LOGFILE="/dev/null"
+COLOR='\e[32m'
+
+if [ -r  /live-build/config/hooks/normal/sk.00-functions.utils ]; then 
+    . /live-build/config/hooks/normal/sk.00-functions.utils
+fi
+
+####################################################################################################################################
+# Tunings.
+####################################################################################################################################
+
+# Tool for choosing the best mirror installation.
+apt-get -y install mirror-chooser |&log
+
+# Use mirror0-90 as main repository.
+apt-get -y install sk-mirror0-90-keyring |&log
+
+echo "deb http://repo.mon-k.com/sk-90 sk-90 main contrib non-free" | tee /etc/apt/sources.list.d/repo.mon-k.com.list |&log
+rm -f /etc/apt/sources.list.d/repo.secure-k.com*.list |&log
+rm -f /etc/apt/sources.list.d/*.experimental* |&log
+apt-get update |&log
+
+####################################################################################################################################
+# Speed tunings.
+####################################################################################################################################
+
+# Remove logrotate (and its config).
+apt-get --purge -y remove logrotate |&log
+
+# Mount /var/log and /tmp into RAM disk.
+# This will break apache (if installed, revert this).
+echo "tmpfs /var/log tmpfs nodev,nosuid,noexec,nodiratime 0 0" >> /etc/fstab |&log
+echo "tmpfs /tmp tmpfs nodev,nodiratime 0 0" >> /etc/fstab |&log
+
+# Reinstall cron after having removed the syslog (issues).
+apt-get install --reinstall -y cron |&log
+

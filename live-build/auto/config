@@ -1,0 +1,22 @@
+#!/bin/sh
+
+lb config noauto --clean \
+    --binary-images iso \
+    --architectures i386  \
+    --linux-flavours 686-pae \
+    --distribution stretch \
+    --archive-areas "main contrib non-free" \
+    --iso-publisher "Mon-K Data Protection" \
+    --iso-preparer "Mon-K Data Protection" \
+    --iso-volume "Secure-K OS" \
+    --iso-application "Secure-K OS" \
+    --firmware-chroot false \
+    --initsystem "systemd" \
+    --security true \
+    --apt-indices true \
+    --source false \
+    --debian-installer false \
+    --memtest none \
+    --win32-loader false \
+    "${@}"
+

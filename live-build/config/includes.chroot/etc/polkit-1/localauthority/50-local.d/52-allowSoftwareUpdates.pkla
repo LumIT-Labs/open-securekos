@@ -1,0 +1,6 @@
+[Allow user to update installed software]
+Identity=unix-user:*
+Action=org.freedesktop.packagekit.system-update
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes

@@ -1,0 +1,7 @@
+[Allow users to modify system locale and keymap]
+Identity=unix-user:*
+Action=org.freedesktop.locale1.set-keyboard
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+

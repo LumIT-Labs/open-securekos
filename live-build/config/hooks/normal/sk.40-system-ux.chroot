@@ -1,0 +1,29 @@
+#!/bin/bash
+
+LOGFILE="/dev/null"
+COLOR='\e[95m'
+
+if [ -r  /live-build/config/hooks/normal/sk.00-functions.utils ]; then 
+    . /live-build/config/hooks/normal/sk.00-functions.utils # fullpath for this folder when in live build runtime.
+fi
+
+####################################################################################################################################
+# User interface configurations.
+####################################################################################################################################
+
+# Set splash (Plymouth) theme.
+plymouth-set-default-theme spinfinity |&log
+
+# Secure-K OS logo.
+apt-get install -y sk-logo |&log
+
+# Change gdm logo from debian-swirl.png to Secure-K.png (from sk-logo package).
+sed -i -e "s#logo='/usr/share/icons/gnome/48x48/places/debian-swirl.png'#logo='/usr/share/icons/gnome/48x48/places/Secure-K.png'#" /etc/gdm3/greeter.dconf-defaults |&log
+
+# Re-generate /var/lib/gdm3/greeter-dconf-defaults from /etc/gdm3/greeter.dconf-defaults to change gdm background and screensaver.
+/usr/share/gdm/generate-config |&log
+
+# Enable HiDPI compatibility on Qt-programs.
+echo "# Enabling HiDPI compatibility on Qt programs" >> /etc/profile |&log
+echo "export QT_AUTO_SCREEN_SCALE_FACTOR=1" >> /etc/profile |&log
+
