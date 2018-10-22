@@ -6,10 +6,10 @@ lb config noauto --clean \
     --linux-flavours 686-pae \
     --distribution stretch \
     --archive-areas "main contrib non-free" \
-    --iso-publisher "Mon-K Data Protection" \
-    --iso-preparer "Mon-K Data Protection" \
-    --iso-volume "Secure-K OS" \
-    --iso-application "Secure-K OS" \
+    --iso-publisher "LumIT Labs" \
+    --iso-preparer "LumIT Labs" \
+    --iso-volume "Open Secure-K OS" \
+    --iso-application "Open Secure-K OS" \
     --firmware-chroot false \
     --initsystem "systemd" \
     --security true \
