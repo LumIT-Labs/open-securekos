@@ -70,7 +70,7 @@ A 32 bit image will be built (the resulting .iso file).
 Download a ready-to-use image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-An already-built ISO image is also available in the **image-latest/** folder (you have to git clone the repository in order to be able to download it).
+An already-built ISO image is also available, see repository's Releases.
 
 
 How to deploy
