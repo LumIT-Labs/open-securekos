@@ -76,7 +76,7 @@ An already-built ISO image is also available in the **image-latest/** folder (yo
 How to deploy
 ^^^^^^^^^^^^^
 
-**Open Secure-K OS Deployer** (https://github.com/LumIT-Labs/open-securekos-deployer) is the deployment system for writing the initial Open Secure-K OS ISO image onto a USB key - it will create the liveng partitioning scheme: run the Deployer, select the image you have built (or downloaded) and type in a passphrase of your choice for LUKS-encrypting the data persistence partition (remember: Open Secure-K OS features native encrypted persistence), then click on Write. Deployer will write the Open Secure-K OS ISO image onto all the plgged-in (and listed) USB devices, thus creating the complete Open Secure-K OS operating system.
+**Open Secure-K OS Deployer** (https://github.com/LumIT-Labs/open-securekos-deployer) is the deployment system for writing the initial Open Secure-K OS ISO image onto a USB key - it will create the liveng partitioning scheme: run the Deployer, select the image you have built (or downloaded) and type in a passphrase of your choice for LUKS-encrypting the data persistence partition (remember: Open Secure-K OS features native encrypted persistence), then click on Write. Deployer will write the Open Secure-K OS ISO image onto all the plugged-in (and listed) USB devices, thus creating the complete Open Secure-K OS operating system.
 
 Some Open Secure-K OS notes:
 
@@ -88,7 +88,9 @@ Some Open Secure-K OS notes:
 Test with VirtualBox
 ^^^^^^^^^^^^^^^^^^^^
 
-You can test Open Secure-K OS within the virtualization system of your choice; you first need to bit-bit copy the content of the USB key you have written by using the Open Secure-K OS Deployer into a file. You cannot use the initial ISO image you have built (or downloaded) directly, because it lacks the liveng partitioning scheme.
+Virtual machine test is not recommended for a live operating system, because in order to fully appreciate its features a bare-metal-boot is to us the best experience.
+
+However, you can test Open Secure-K OS within the virtualization system of your choice; you first need to bit-bit copy the content of the USB key you have written by using the Open Secure-K OS Deployer into a file. You cannot use the initial ISO image you have built (or downloaded) directly, because it lacks the liveng partitioning scheme.
 
 Thus, deploy the ISO image onto a USB key as previously described, then (locate USB key's device file with *fdisk -l*)::
 
