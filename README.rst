@@ -29,9 +29,12 @@ Longer:
     `Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built upon Open Secure-K OS.
 
 
+Screenshots
+^^^^^^^^^^^
 
-@todo: screenshots.
+.. image:: screenshots/open-securek-os.1.png
 
+.. image:: screenshots/open-securek-os.1.png
 
 
 Contribute to the project
@@ -106,9 +109,11 @@ First of all, you need to convert the IMG image into the VirtualBox VDI format::
 Then you have to create a new virtual machine in VirtualBox and use *open-securek-os.vdi* as the virtual hard drive. 
 You also need to enable the PAE/NX CPU functionalities and 3D acceleration capabilities.
 
-We have noticed that on some VirtualBox installations, Plymouth input password box isn't working: upon booting, edit the GRUB linux command line (*e* key) and remove the splash directive.
+We have noticed that on some VirtualBox installations, Plymouth input password box isn't working: upon booting, edit the GRUB linux command line (*e* key) and remove the *splash=silent* directive.
 
-Run-time, you are advised to install VirtualBox Guest Additions.
+Run-time, you are advised to install VirtualBox Guest Additions, then update the current kernel::
+
+    apt-get install --reinstall sk-linux-image-update
 
 
 What about Secure-K OS?
