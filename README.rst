@@ -9,7 +9,7 @@ Short:
     **Open Secure-K OS** is a **liveng-compliant** (https://github.com/LumIT-Labs/liveng, https://liveng.readthedocs.io) operating system built using Linux Debian Stretch components. It is a free and open source next generation **live operating system**, on which `Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built, **capable of**:
 
     * native encrypted persistence;
-    * kernel update (on a live ISO 9660 filesystem!);
+    * kernel update (on a standard live ISO 9660 filesystem!);
     * UEFI, with UEFI Secure Boot compatibility, with a real efi partition;
     * user creation wizard upon the first boot. Live operating systems use to have the “live” user already created, while Open Secure-K OS pops up the Initial Setup interface in order to create one, together with language, keyboard and time zone. 
 
@@ -22,11 +22,17 @@ Longer:
     Unique system features are:
 
     * native encrypted persistence;
-    * kernel update (on a live ISO 9660 filesystem!);
+    * kernel update (on a standard live ISO 9660 filesystem!);
     * UEFI, with UEFI Secure Boot compatibility, with a real efi partition;
     * user creation wizard upon the first boot. Live operating systems use to have the “live” user already created, while Open Secure-K OS pops up the Initial Setup interface in order to create one, together with language, keyboard and time zone. 
 
     `Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built upon Open Secure-K OS.
+
+
+Why
+^^^
+
+None of the existing live operating systems provide a kernel update feature: the kernel and the initrd are the only components that a live operating system cannot update, because they lay outside of the data persistence partition (if any) and usually the system partition is ISO9660-formatted. This will soon lead to an outdated operating system, particularly unsafe if used as a desktop-replacement or for security-critical activities.
 
 
 Screenshots
