@@ -4,35 +4,20 @@ Open Secure-K OS
 What is
 ^^^^^^^
 
-Short:
-
-    **Open Secure-K OS** is a **liveng-compliant** (https://github.com/LumIT-Labs/liveng, https://liveng.readthedocs.io) operating system built using Linux Debian Stretch components. It is a free and open source next generation **live operating system**, on which `Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built, **capable of**:
-
-    * native encrypted persistence;
-    * kernel update (on a standard live ISO 9660 filesystem!);
-    * UEFI, with UEFI Secure Boot compatibility, with a real efi partition;
-    * user creation wizard upon the first boot. Live operating systems use to have the “live” user already created, while Open Secure-K OS pops up the Initial Setup interface in order to create one, together with language, keyboard and time zone. 
-
-Longer:
-
     **Open Secure-K OS** is an operating system booting from a USB key in which you can safely create and store your personal and private data. It is an advanced Debian Stretch Linux-based live USB operating system built for security and ease of use: user and system data are saved encrypted within the USB key (AES 512bit), so the system can be used as a clean and safe environment for your on-line security-critical activities. Moreover Secure-K does not rely on the PC hard drive and, being a Linux derivative, it’s immune to most viruses and it’s spyware / adware / backdoor free.
 
-    Open Secure-K OS features a unique partitioning scheme - it is **liveng-compliant** (https://github.com/LumIT-Labs/liveng, https://liveng.readthedocs.io) -, which allows complete system and kernel update. GRUB is the bootloader for both BIOS and UEFI; the Linux Foundation’s preloader assures the Secure Boot compliance.
+    Open Secure-K OS features a unique partitioning scheme - it is **liveng-compliant** (https://github.com/LumIT-Labs/liveng, https://liveng.readthedocs.io) -, which allows complete system and kernel update with a readonly system partition. GRUB is the bootloader for both BIOS and UEFI; the Linux Foundation’s preloader assures the Secure Boot compliance.
 
     Unique system features are:
 
     * native encrypted persistence;
-    * kernel update (on a standard live ISO 9660 filesystem!);
+    * kernel update (on a standard ISO 9660 filesystem, which is the best option for a live operating system because of its strength against data corruption);
     * UEFI, with UEFI Secure Boot compatibility, with a real efi partition;
     * user creation wizard upon the first boot. Live operating systems use to have the “live” user already created, while Open Secure-K OS pops up the Initial Setup interface in order to create one, together with language, keyboard and time zone. 
 
+     None of the existing ISO9660-based live operating systems except Open Secure-K OS provides a kernel update feature.
+
     `Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built upon Open Secure-K OS.
-
-
-Why
-^^^
-
-None of the existing live operating systems provide a kernel update feature: the kernel and the initrd are the only components that a live operating system cannot update, because they lay outside of the data persistence partition (if any) and usually the system partition is ISO9660-formatted. This will soon lead to an outdated operating system, particularly unsafe if used as a desktop-replacement or for security-critical activities.
 
 
 Screenshots
@@ -139,5 +124,4 @@ Unique Secure-K OS features are:
     * anonymous browsing;
     * encrypted textual, audio and video chat;
     * encrypted and signed emails exchange with ease: a program called Key Manager is able to generate and exchange GPG keys with a central keyserver. This allows everyone running a Secure-K OS to send encrypted emails to another Secure-K OS user without manually retrieving the GPG key: process is done automatically by the modified Evolution email client build, which runs on top of every Secure-K OS.
-
 
