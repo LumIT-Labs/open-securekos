@@ -1,0 +1,6 @@
+#!/bin/bash
+
+lb clean
+lb config -c auto/config-$(dpkg --print-architecture)
+lb build
+

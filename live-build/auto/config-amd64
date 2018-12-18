@@ -1,0 +1,21 @@
+#!/bin/sh
+
+lb config noauto --clean \
+    --binary-images iso \
+    --architectures amd64  \
+    --distribution stretch \
+    --archive-areas "main contrib non-free" \
+    --iso-publisher "LumIT Labs" \
+    --iso-preparer "LumIT Labs" \
+    --iso-volume "Open Secure-K OS" \
+    --iso-application "Open Secure-K OS" \
+    --firmware-chroot false \
+    --initsystem "systemd" \
+    --security true \
+    --apt-indices true \
+    --source false \
+    --debian-installer false \
+    --memtest none \
+    --win32-loader false \
+    "${@}"
+

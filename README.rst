@@ -39,7 +39,7 @@ Open Secure-K OS is a **LumIT Labs** project.
 How to build the initial ISO image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A **32bit Debian Stretch** bare-metal system or virtual machine is required for the build.
+A **Debian Stretch** bare-metal system or virtual machine is required for the build (other Debian-derived systems may work).
 
 The Open Secure-K OS ISO image is built using the standard Debian **live-build** framework, so you first need to install it:: 
  
@@ -50,18 +50,15 @@ Git **clone this project as root**.
 In order to build a Secure-K OS image, open the terminal emulator **as root**::
 
     cd /path/to/open-securekos/live-build
+    bash lb
 
-    lb clean
-    lb config -c auto/config
-    lb build 
-
-A 32 bit image will be built (the resulting .iso file). 
+A .iso image will be built according to your host architecture (if building on an amd64, a 64bit iso will be produced. An i386 iso will be built on i386 hosts).
 
 
 Download a ready-to-use image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-An already-built ISO image is also available, see repository's Releases.
+An already-built ISO image is also available, see this repository's Releases (https://github.com/LumIT-Labs/open-securekos/releases).
 
 
 How to deploy
@@ -74,39 +71,6 @@ Some Open Secure-K OS notes:
 * root user's password is: *liveng*; 
 * during the boot, you will be asked for the decryption password of the data persistence partition;
 * system user will be created upon the first boot.
-
-
-Test with VirtualBox
-^^^^^^^^^^^^^^^^^^^^
-
-Virtual machine test is not recommended for a live operating system, because in order to fully appreciate its features a bare-metal-boot is to us the best experience.
-
-However, you can test Open Secure-K OS within the virtualization system of your choice; you first need to bit-bit copy the content of the USB key you have written by using the Open Secure-K OS Deployer into a file. You cannot use the initial ISO image you have built (or downloaded) directly, because it lacks the liveng partitioning scheme.
-
-Thus, deploy the ISO image onto a USB key as previously described, then (locate USB key's device file with *fdisk -l*)::
-
-    dd if=/dev/deviceFile of=/tmp/open-securek-os.img bs=10M
-
-A real example::
-
-    dd if=/dev/sdc of=/tmp/open-securek-os.img bs=10M
-
-Note that the new file has got the .img extension (it's not a ISO file any more).
-
-With this image file, a VirtualBox-related howto now follows. 
-
-First of all, you need to convert the IMG image into the VirtualBox VDI format::
-
-    vboxmanage convertdd /path/to/open-securek-os.img /path/to/open-securek-os.vdi
-
-Then you have to create a new virtual machine in VirtualBox and use *open-securek-os.vdi* as the virtual hard drive. 
-You also need to enable the PAE/NX CPU functionalities and 3D acceleration capabilities.
-
-We have noticed that on some VirtualBox installations, Plymouth input password box isn't working: upon booting, edit the GRUB linux command line (*e* key) and remove the *splash=silent* directive.
-
-Run-time, you are advised to install VirtualBox Guest Additions, then update the current kernel::
-
-    apt-get install --reinstall sk-linux-image-update
 
 
 What about Secure-K OS?
