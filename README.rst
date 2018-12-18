@@ -52,7 +52,7 @@ In order to build a Secure-K OS image, open the terminal emulator **as root**::
     cd /path/to/open-securekos/live-build
     bash lb
 
-A .iso image will be built according to your host architectire (if building on an amd64, a 64bit iso will be produced. An i386 iso will be built on i386 hosts).
+A .iso image will be built according to your host architecture (if building on an amd64, a 64bit iso will be produced. An i386 iso will be built on i386 hosts).
 
 
 Download a ready-to-use image
