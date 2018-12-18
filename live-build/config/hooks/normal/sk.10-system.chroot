@@ -45,9 +45,6 @@ chmod 750 /root |&log
 # Clean fstab, it will be written later.
 rm -f /etc/fstab |&log
 
-# Removals.
-apt-get --purge remove -y modemmanager totem* |&log
-
 # Force-enable Systemd NTP service, used by GNOME to automagically set time and date. 
 systemctl enable systemd-timesyncd |&log
 
