@@ -52,18 +52,18 @@ firefox-esr-l10n-all
 gedit-plugins
 gksu
 gnome-clocks 
-gnome-color-manager 
-gnome-initial-setup
+gnome-color-manager
+gnome-initial-setup gnome-getting-started-docs-
 gnome-menus
 gnome-screensaver
 gnome-screenshot 
-gnome-shell-extension-dashtodock  
+gnome-shell-extension-dashtodock
 gnome-shell-extension-taskbar
 gnome-shell-extension-top-icons-plus
- 
+
 gucharmap 
 guvcview
-nautilus-sendto 
+nautilus-sendto
 network-manager*
 notification-daemon 
 plymouth-themes
