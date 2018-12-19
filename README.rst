@@ -70,7 +70,7 @@ How to deploy
 
 Some Open Secure-K OS notes:
 
-* root user's password is: *liveng*; 
+* use sudo for super-cow powers;
 * during the boot, you will be asked for the decryption password of the data persistence partition - the secret you enter while deploying;
 * system user will be created upon the first boot.
 

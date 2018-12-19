@@ -34,13 +34,8 @@ do
     cp -a /tmp/$programFileName $programFile |&log
 done
 
-# Change root password, the command line way.
-passwd --quiet root <<EOF
-liveng
-liveng
-EOF
-
-chmod 750 /root |&log
+# Disabling root login.
+passwd -l root
 
 # Clean fstab, it will be written later.
 rm -f /etc/fstab |&log
