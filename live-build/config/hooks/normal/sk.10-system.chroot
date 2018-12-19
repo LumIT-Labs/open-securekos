@@ -62,9 +62,6 @@ chmod 750 /etc/skel/.config/dconf/user |&log
 chown 0:0 /etc/skel/.config/dconf/user |&log
 rm -fR /tmp/dconf |&log
 
-# Copy dconf/user in skel/ to a users' readable file, for being used by "dconf/user watchdog" in GDM postlogin script.
-cp -afv /etc/skel/.config/dconf/user /etc/config-dconf-user-sk && chmod 755 /etc/config-dconf-user-sk |&log
- 
 # Secure-K OS version file. Don't move the following lines before the kernel installation.
 cat > /etc/os-release <<EOF
 NAME="Open Secure-K OS"

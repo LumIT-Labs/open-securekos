@@ -12,15 +12,15 @@ fi
 ####################################################################################################################################
 
 # Tool for choosing the best mirror installation.
-apt-get -y install mirror-chooser |&log
+##apt-get -y install mirror-chooser |&log
 
 # Use mirror0-90 as main repository.
-apt-get -y install sk-mirror0-90-keyring |&log
+##apt-get -y install sk-mirror0-90-keyring |&log
 
-echo "deb http://repo.mon-k.com/sk-90 sk-90 main contrib non-free" | tee /etc/apt/sources.list.d/repo.mon-k.com.list |&log
-rm -f /etc/apt/sources.list.d/repo.secure-k.com*.list |&log
-rm -f /etc/apt/sources.list.d/*.experimental* |&log
-apt-get update |&log
+##echo "deb http://repo.mon-k.com/sk-90 sk-90 main contrib non-free" | tee /etc/apt/sources.list.d/repo.mon-k.com.list |&log
+##rm -f /etc/apt/sources.list.d/repo.secure-k.com*.list |&log
+##rm -f /etc/apt/sources.list.d/*.experimental* |&log
+##apt-get update |&log
 
 ####################################################################################################################################
 # Speed tunings.
