@@ -41,9 +41,9 @@ Open Secure-K OS is a **LumIT Labs** project.
 How to build the initial ISO image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A **Debian Stretch** host is required for the build (other Debian-derived systems may work).
+A **Debian Stretch** host is required for the build (64 bit preferred); other Debian-derived systems may work.
 
-The Open Secure-K OS ISO image is built using the standard Debian **live-build** framework, so you first need to install it:: 
+The Open Secure-K OS ISO image is built using the standard Debian **live-build** framework, so you first need to install it::
  
     apt-get install -y live-build
 
