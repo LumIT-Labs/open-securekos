@@ -12,7 +12,7 @@ fi
 ####################################################################################################################################
 
 # Divert the following files, for we don't want them to be ever updated.
-programFiles=("/usr/lib/os-release")
+programFiles=("/usr/lib/os-release") # we set this file in a previous hook.
 for programFile in ${programFiles[@]};
 do
     programFileName=$(echo -n "$programFile" | sed -r -e 's#(.*)/(.*)#\2#')
