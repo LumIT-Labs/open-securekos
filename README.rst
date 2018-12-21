@@ -72,7 +72,8 @@ Some Open Secure-K OS notes:
 
 * use sudo for super-cow powers;
 * during the boot, you will be asked for the decryption password of the data persistence partition - the secret you enter while deploying;
-* system user will be created upon the first boot.
+* system user will be created upon the first boot;
+* [only for 32 bit builds] a GNOME Initial Setup bug triggers a crash if setting the network in the Initial Setup interface. In this case, just reboot the system.
 
 
 What about Secure-K OS?
