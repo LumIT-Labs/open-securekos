@@ -46,8 +46,7 @@ systemctl enable systemd-timesyncd |&log
 # And disable Openntpd (if installed).
 systemctl disable openntpd |&log
 
-# User's keyboard (desktop, login screen) and language will be set by the Initial Setup,
-# so keymap and language must be null in /etc/default (and in dconf/user for the keymap).
+# User's keyboard (desktop, login screen) and language will be set by the Initial Setup; keymap must be null in /etc/default and in dconf/user.
 
 # dconf/user for skel (only), compile from "sources".
 mkdir /tmp/dconf |&log
