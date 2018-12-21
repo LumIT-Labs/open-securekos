@@ -40,7 +40,7 @@ locate-pointer=true
 app-picker-view=uint32 1
 command-history=['r']
 enabled-extensions=['alternative-status-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'gnome-shell-trash-extension', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'secure-k@mon-k.com', 'TaskBar@zpydr', 'dash-to-dock@micxgx.gmail.com', 'TopIcons@phocean.net', 'CoverflowAltTab@palatis.blogspot.com']
-favorite-apps=['support-center.desktop', 'digitalarx.desktop', 'org.gnome.Terminal.desktop']
+favorite-apps=['org.gnome.Terminal.desktop', 'org.gnome.gedit.desktop', 'firefox-esr.desktop']
 
 [org/gnome/shell/calendar]
 show-weekdate=false

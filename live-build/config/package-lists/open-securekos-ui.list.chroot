@@ -92,11 +92,11 @@ rhythmbox-plugins
 sound-theme-freedesktop
 system-config-printer-common
 system-config-printer-udev
+totem
 tracker-gui
 ttf-dejavu
 ttf-freefont
 vino
-vlc
 xdg-user-dirs-gtk
 zeitgeist
 zenity

@@ -19,7 +19,7 @@ What is
 
     `Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built upon Open Secure-K OS.
 
-    At the end of the day, Open Secure-K OS is thought as a **the most solid and secure base for your own live operating system** - you can customimze it at your will (only the very basic programs are installed by default).
+    At the end of the day, Open Secure-K OS is thought as a **the most solid and secure base for your own live operating system** - you can customize it at your will (only the very basic programs are installed by default).
 
 
 Screenshots
