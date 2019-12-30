@@ -17,10 +17,9 @@ What is
 
      None of the existing ISO9660-based live operating systems except Open Secure-K OS provides a kernel update feature.
 
-    `Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built upon Open Secure-K OS.
-
     At the end of the day, Open Secure-K OS is thought as a **the most solid and secure base for your own live operating system** - you can customize it at your will (only the very basic programs are installed by default).
 
+`Resilient Linux <https://www.resilientlinux.com/>`_ is a hard-drive installable operating system built upon Open Secure-K OS.
 
 Screenshots
 ^^^^^^^^^^^
@@ -74,21 +73,3 @@ Some Open Secure-K OS notes:
 * during the boot, you will be asked for the decryption password of the data persistence partition - the secret you enter while deploying;
 * system user will be created upon the first boot;
 * [only for 32 bit builds] a GNOME Initial Setup bug triggers a crash if setting the network in the Initial Setup interface. In this case, just reboot the system.
-
-
-What about Secure-K OS?
-^^^^^^^^^^^^^^^^^^^^^^^
-
-`Secure-K OS <https://mon-k.com/products/secure-k-personal>`_ is built upon Open Secure-K OS and improves its *community counterpart* in some ways. 
-
-Unique Secure-K OS features are:
-
-* anti-tampering measures performed during the bootstrap: a self-checking kernel component is also available, which is responsible of verifying that system files have not been tampered, preventing the virtualization of the image, the use of the *init=* kernel boot parameter, and so on;
-* unencrypted key’s partition for data exchange;
-* Backup & Restore – an optional encrypted real-time system backup: system can be restored to a new USB key, useful in case of key theft or loss. Backup is performed into the Secure-K OS' cloud;
-* Secure-Zone, which allows:
-
-    * anonymous browsing;
-    * encrypted textual, audio and video chat;
-    * encrypted and signed emails exchange with ease: a program called Key Manager is able to generate and exchange GPG keys with a central keyserver. This allows everyone running a Secure-K OS to send encrypted emails to another Secure-K OS user without manually retrieving the GPG key: process is done automatically by the modified Evolution email client build, which runs on top of every Secure-K OS.
-
