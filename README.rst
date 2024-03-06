@@ -19,7 +19,6 @@ What is
 
     At the end of the day, Open Secure-K OS is thought as a **the most solid and secure base for your own live operating system** - you can customize it at your will (only the very basic programs are installed by default).
 
-`Resilient Linux <https://www.resilientlinux.com/>`_ is a hard-drive installable operating system built upon Open Secure-K OS.
 Open Secure-K OS served as a proof of concept for the liveng technology and wont' be developed any more.
 
 Screenshots
