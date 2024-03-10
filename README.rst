@@ -58,7 +58,7 @@ Normal flow is:
 
 How to build the initial ISO image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+This section is for developers who want to contribute to the project.
 A **Debian Bullseye** host is required for the build; other Debian-derived systems may work.
 
 The Open Secure-K OS ISO image is built using the standard Debian **live-build** framework, so you first need to install it::
