@@ -8,25 +8,12 @@
 
 # Theming options
 # ===============
-#  - Change the GTK+ theme
-# [org/gnome/desktop/interface]
-# gtk-theme='Adwaita'
-#  - Use another background
-# [org/gnome/desktop/background]
-# picture-uri='file:///usr/share/themes/Adwaita/backgrounds/stripes.jpg'
-# picture-options='zoom'
-#  - Or no background at all
-# [org/gnome/desktop/background]
-# picture-options='none'
-# primary-color='#000000'
-
 [org/gnome/desktop/screensaver]
 picture-uri='file:///usr/share/backgrounds/gnome/Lockscreen.png'
 primary-color='#000000000000'
 lock-delay=uint32 300
 picture-options='zoom'
 secondary-color='#000000000000'
-
 
 [org/gnome/desktop/background]
 picture-uri='file:///usr/share/backgrounds/gnome/Desktop.png'
@@ -36,12 +23,11 @@ primary-color='#000000000000'
 picture-options='zoom'
 secondary-color='#000000000000'
 
-
 # Login manager options
 # =====================
 [org/gnome/login-screen]
-logo='/usr/share/icons/gnome/48x48/places/debian-swirl.png'
-fallback-logo='/usr/share/icons/gnome/48x48/places/debian-swirl.png'
+logo='/usr/share/icons/gnome/48x48/places/Secure-K.png'
+fallback-logo='/usr/share/icons/gnome/48x48/places/Secure-K.png'
 
 # - Disable user list
 # disable-user-list=true

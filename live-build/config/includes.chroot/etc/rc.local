@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-# Secure-K hooks.
+# Resilient Linux hooks.
 hooksFolder="/etc/rc.local.d"
 if [ -d $hooksFolder ]; then
     for hookScript in $hooksFolder/hook-*-sk.sh; do

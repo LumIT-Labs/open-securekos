@@ -1,3 +1,0 @@
-umask 0077
-xhost + SI:localuser:root
-

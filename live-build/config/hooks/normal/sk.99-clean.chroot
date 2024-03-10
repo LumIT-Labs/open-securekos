@@ -12,12 +12,19 @@ fi
 ####################################################################################################################################
 
 # Divert the following files, for we don't want them to be ever updated.
-programFiles=("/usr/lib/os-release") # we set this file in a previous hook.
+programFiles=("/usr/lib/os-release")
 for programFile in ${programFiles[@]};
 do
     programFileName=$(echo -n "$programFile" | sed -r -e 's#(.*)/(.*)#\2#')
     dpkg-divert --divert /tmp/$programFileName --rename $programFile |&log
     cp -a /tmp/$programFileName $programFile |&log
+done
+
+# Mark hold the following packages.
+packages=("live-boot", "live-config*", "live-tools", "desktop-base")
+for package in ${packages[@]};
+do
+    apt-mark hold "$package"
 done
 
 # Final cleanups.

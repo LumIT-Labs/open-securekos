@@ -3,7 +3,6 @@
 .workdir
 .config.empty
 .project
-binary
 cache
 cache-*
 chroot
@@ -11,9 +10,3 @@ chroot.files
 chroot.packages.install
 chroot.packages.live
 live-image-*
-config/bootstrap
-config/build
-config/common
-config/source
-
-

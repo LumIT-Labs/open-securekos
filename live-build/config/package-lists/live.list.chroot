@@ -1,1 +1,5 @@
 live-boot
+live-config
+live-config-systemd
+systemd-sysv
+# Modified live config in includes.chroot/.

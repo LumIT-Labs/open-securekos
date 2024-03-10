@@ -16,4 +16,3 @@ log()
     cat ${@} | tee -a $logfile
     echo | tee -a $logfile
 }
-
