@@ -24,6 +24,8 @@ Screenshots
 
 .. image:: screenshots/open-securek-os.1.png
 
+.. image:: screenshots/open-securek-os.2.png
+
 
 How to use
 ^^^^^^^^^^
