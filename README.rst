@@ -12,7 +12,7 @@ What is
 
     * native encrypted persistence;
     * **kernel update** (**on a ISO9660 filesystem**, which is the best option for a live operating system because of its strength against data corruption and tampering);
-    * UEFI, with UEFI Secure Boot compatibility, with a real efi partition;
+    * UEFI boot with a real efi partition (this new release is not more Secure Boot compliant; this might change - again - for the next release);
     * user creation wizard upon the first boot. 
 
      None of the existing ISO9660-based live operating systems except Open Secure-K OS provides a kernel update feature.
@@ -35,7 +35,9 @@ An already-built initial ISO image is from Releases (https://github.com/LumIT-La
 **Open Secure-K OS Deployer** (https://github.com/LumIT-Labs/open-securekos-deployer) is the deployment system for writing the initial Open Secure-K OS ISO image onto a USB key - it will create the liveng partitioning scheme. 
 Install the Deployer (you need a Debian based operating system for this), run it, select the downloaded image and type in a passphrase of your choice for LUKS-encrypting the data persistence partition (remember: Open Secure-K OS features native encrypted persistence), then click on Write. 
 
-Once write is finished, you can boot your computer with the USB key. During the boot you will be asked for the decryption password of the data persistence partition - the secret you enter while deploying.
+Once write is finished, you can boot your computer with the USB key. **Secure Boot must be disabled on the PC BIOS settings for the operating system to boot**.
+
+During the boot you will be asked for the decryption password of the data persistence partition - the secret you enter while deploying.
 
 
 Technical (and interesting?) notes
