@@ -4,20 +4,19 @@ Open Secure-K OS
 What is
 ^^^^^^^
 
-    **Open Secure-K OS** is an operating system booting from a USB key in which you can safely create and store your personal and private data. It is an **advanced Debian Bullseye Linux-based live USB operating system built for security**: user and system data are saved encrypted within the USB key (AES 512bit), so the system can be used as a clean and safe environment for your on-line security-critical activities. Moreover Open Secure-K OS does not rely on the PC hard drive and, being a Linux derivative, it’s immune to most viruses and it’s spyware / adware / backdoor free.
+**Open Secure-K OS** is an operating system booting from a USB key in which you can safely create and store your personal and private data. It is an **advanced Debian Bullseye Linux-based live USB operating system built for security**: user and system data are saved encrypted within the USB key (AES 512bit), so the system can be used as a clean and safe environment for your on-line security-critical activities. Moreover Open Secure-K OS does not rely on the PC hard drive and, being a Linux derivative, it’s immune to most viruses and it’s spyware / adware / backdoor free.
 
-    Open Secure-K OS features a unique partitioning scheme - it is liveng-compliant (https://github.com/LumIT-Labs/liveng, https://liveng.readthedocs.io) -, which allows complete system and kernel update with a readonly system partition. See the liveng specification or below for more.
+Open Secure-K OS features a unique partitioning scheme - it is liveng-compliant (https://github.com/LumIT-Labs/liveng, https://liveng.readthedocs.io) -, which allows complete system and kernel update with a readonly system partition. See the liveng specification or below for more.
 
-    Unique system features are:
+Unique system features are:
+ - native encrypted persistence;
+ - **kernel update** (**on a ISO9660 filesystem**, which is the best option for a live operating system because of its strength against data corruption and tampering);
+ - UEFI boot with a real efi partition;
+ - user creation wizard upon the first boot. 
 
-    * native encrypted persistence;
-    * **kernel update** (**on a ISO9660 filesystem**, which is the best option for a live operating system because of its strength against data corruption and tampering);
-    * UEFI boot with a real efi partition (this new release is not more Secure Boot compliant; this might change - again - for the next release);
-    * user creation wizard upon the first boot. 
+None of the existing ISO9660-based live operating systems except Open Secure-K OS provides a kernel update feature.
 
-     None of the existing ISO9660-based live operating systems except Open Secure-K OS provides a kernel update feature.
-
-    At the end of the day, Open Secure-K OS is thought as a **the most solid and secure base for your own live operating system** - you can customize it at your will (only the very basic programs are installed by default).
+At the end of the day, Open Secure-K OS is thought as a **the most solid and secure base for your own live operating system** - you can customize it at your will (only the very basic programs are installed by default).
 
 Screenshots
 ^^^^^^^^^^^
