@@ -3,7 +3,7 @@
 LOGFILE="/dev/null"
 COLOR='\e[95m'
 
-if [ -r  /live-build/config/hooks/normal/sk.00-functions.utils ]; then 
+if [ -r  /live-build/config/hooks/normal/sk.00-functions.utils ]; then
     . /live-build/config/hooks/normal/sk.00-functions.utils # fullpath for this folder when in live build runtime.
 fi
 

@@ -49,25 +49,38 @@ enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'das
 favorite-apps=['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.gedit.desktop', 'firefox-esr.desktop']
 
 [org/gnome/shell/extensions/dash-to-dock]
-animate-show-apps=false
+always-center-icons=true
 apply-custom-theme=false
-background-color='#c0bfbc'
-background-opacity=0.20000000000000001
-custom-background-color=false
+background-color='rgb(192,191,188)'
+background-opacity=0.17000000000000001
+custom-background-color=true
 custom-theme-shrink=true
+dance-urgent-applications=true
 dash-max-icon-size=22
 dock-fixed=true
 dock-position='BOTTOM'
 extend-height=true
+height-fraction=0.90000000000000002
+hide-tooltip=false
 icon-size-fixed=true
-isolate-monitors=true
-isolate-workspaces=true
+isolate-monitors=false
+isolate-workspaces=false
 multi-monitor=true
-preferred-monitor=0
+preferred-monitor=-2
+preferred-monitor-by-connector='DP-0'
+running-indicator-style='DEFAULT'
+scroll-to-focused-application=true
 show-apps-at-top=true
-show-mounts=true
+show-icons-emblems=true
+show-icons-notifications-counter=true
+show-mounts=false
+show-mounts-network=true
+show-mounts-only-mounted=true
+show-show-apps-button=true
 show-trash=true
+show-windows-preview=false
 transparency-mode='FIXED'
+workspace-agnostic-urgent-windows=true
 
 [org/gnome/shell/extensions/user-theme]
 name='Materia-light-compact'
