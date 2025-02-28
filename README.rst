@@ -30,7 +30,7 @@ Screenshots
 How to use
 ^^^^^^^^^^
 
-An already-built initial ISO image is from Releases (https://github.com/LumIT-Labs/open-securekos/releases).
+An already-built initial ISO image can be found in Releases (https://github.com/LumIT-Labs/open-securekos/releases).
 
 **Open Secure-K OS Deployer** (https://github.com/LumIT-Labs/open-securekos-deployer) is the deployment system for writing the initial Open Secure-K OS ISO image onto a USB key - it will create the liveng partitioning scheme. 
 Install the Deployer (you need a Debian based operating system for this), run it, select the downloaded image and type in a passphrase of your choice for LUKS-encrypting the data persistence partition (remember: Open Secure-K OS features native encrypted persistence), then click on Write. 
@@ -49,15 +49,15 @@ The GRUB bootloader (both for BIOS and UEFI) is instructed to boot by default fr
 Open Secure-K OS differs from the LumIT Labs’ liveng definition in the way the readonly second system partition is rewritten: a hook is called at every initramfs update and not only within a kernel package’s postinst.
 First System partition files are kept at their default state and can be useful in case of recovery or when a complete persistence reset is performed.
 
-The third (FAT) partition is for the UEFI compliance (it contains the UEFI GRUB bootloader); the first-stage BIOS GRUB bootloader is installed within the MBR.
+The third (FAT) partition is for the UEFI compliance (it contains the UEFI GRUB bootloader); the first-stage BIOS GRUB bootloader is installed within the (protective) MBR.
 
-Data persistence is accomplished by a fourth partition where system is instructed to write into, or better explained, which the system will union-mount with the filesystem.squashfs image. 
+Data persistence is accomplished by a fourth partition where system is instructed to write into, or better explained, whose filesystem will be union-mounted with the filesystem.squashfs image's filesystem. 
 This can be optionally LUKS-encrypted. 
 
 Normal flow is:
-- GRUB boots the kernel/initrd from the second partition, then union mounts the filesystem.squashfs (within the 1st partition) with the persistence partition and this will be the root /.
-- First partition is used for storing the filesystem squashfs and the original kernel. 
-- Why not storing the filesystem.squashfs within the second partition? Because we need to rewrite it at every kernel update, so it must be very small. 
+ - GRUB boots the kernel/initrd from the second partition, then union mounts the filesystem.squashfs (within the 1st partition) with the persistence partition and this will be the root /.
+ - First partition is used for storing the filesystem squashfs and the original kernel. 
+ - Why not storing the filesystem.squashfs within the second partition? Because we need to rewrite it at every kernel update, so it must be very small. 
 
 
 How to build the initial ISO image
